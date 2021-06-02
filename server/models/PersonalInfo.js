@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
         
     });
 
-
+    PersonalInfo.associate = (models) => {
+        PersonalInfo.belongsTo(models.Users, {
+          onDelete: "cascade",
+        })
+      }
     return PersonalInfo;
 };

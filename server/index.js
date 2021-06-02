@@ -11,12 +11,12 @@ const db = require("./models");
 const usersRouter = require("./routes/Users")
 app.use("/auth", usersRouter)
 
-const profileRouter = require("./routes/ProfilePicture")
-app.use("/upload", profileRouter)
+// const profileRouter = require("./routes/ProfilePicture")
+// app.use("/upload", profileRouter)
 
 
 db.sequelize.sync().then(() => {
-    app.listen(3002, () => {
-      console.log("Server running on port 3002");
+    app.listen(3003, () => {
+      console.log("Server running on port 3003");
     });
   });
