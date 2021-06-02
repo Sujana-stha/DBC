@@ -11,6 +11,9 @@ const db = require("./models");
 const usersRouter = require("./routes/Users")
 app.use("/auth", usersRouter)
 
+const personlRouter = require("./routes/PersonalInfo")
+app.use("/personal", personlRouter)
+
 // const profileRouter = require("./routes/ProfilePicture")
 // app.use("/upload", profileRouter)
 
