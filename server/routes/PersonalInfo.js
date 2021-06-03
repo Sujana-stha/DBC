@@ -1,28 +1,30 @@
 const express = require("express");
 const router = express.Router();
-const { PersonalInfo, BusinessInfo, Interest } = require("../models");
+const { PersonalInfo, BusinessInfo, Interests } = require("../models");
 const jwt = require("jsonwebtoken");
+const {validateToken} = require('../middlewares/authMiddleware')
 
-router.post("/", (req, res) => {
+router.post("/", validateToken,  (req, res) => {
     const { profile, summary, business_sector, business_name, position, interest } = req.body;
-    const authHeader = req.headers.authorization;
-    const decoded = jwt.verify(authHeader, "importantsecret");
-    var userId = decoded.id
+    // const authHeader = req.headers.authorization;
+    // const decoded = jwt.verify(authHeader, "importantsecret");
+    // var userId = decoded.id
     // res.json(userId);
+    const userId = req.user.id
 
-    PersonalInfo.create({
+     PersonalInfo.create({
         profile: profile,
         summary: summary,
         userId: userId
     })
 
-    BusinessInfo.create({
+     BusinessInfo.create({
         business_name: business_name,
         business_sector: business_sector,
         position: position,
         userId: userId
     })
-    Interest.create({
+    Interests.create({
         interest:interest,
         userId: userId
     })
