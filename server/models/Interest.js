@@ -1,17 +1,18 @@
 module.exports = (sequelize, DataTypes) => {
-    const Interests = sequelize.define("Interests", {
-        interest: {
+    const Interest = sequelize.define("Interest", {
+        title: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        userId: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'Users',
-                key: "id"
-            }
-        }
+        
     });
 
-    return Interests;
+    Interest.associate = (models) => {
+        Interest.belongsToMany(models.Users, {
+            through: "UserInterest",
+            as: "Users",
+            foreignKey: "interestId",
+        })
+    }
+    return Interest;
 };

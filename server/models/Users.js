@@ -1,4 +1,4 @@
-const PersonalInfo = require("./PersonalInfo");
+
 
 module.exports = (sequelize, DataTypes) => {
     const Users = sequelize.define("Users", {
@@ -24,7 +24,34 @@ module.exports = (sequelize, DataTypes) => {
         },
 
     });
+    
+    Users.associate = (models) => {
+        Users.belongsToMany(models.Objective, {
+            through: "UserObjective",
+            as: "Objective",
+            foreignKey:  "UserId",
+        })
+        Users.belongsToMany(models.Interest, {
+            through: "UserInterest",
+            as: "Interest",
+            foreignKey:  "UserId",
+        })
+        Users.hasOne(models.BusinessInfo, {
+            foreignKey:  "UsersId",
+        })
+        Users.hasOne(models.PersonalInfo, {
+            foreignKey:  "UsersId",
+        })
+        Users.hasOne(models.Image, {
+            foreignKey:  "userId",
+        })
+        Users.hasMany(models.MeetUser, {
+            foreignKey:  "UsersId",
+        })
+        Users.hasMany(models.Meetings, {
+            foreignKey:  "UsersId",
+        })
+    }
 
-  
     return Users;
 };

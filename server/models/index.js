@@ -33,5 +33,37 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+// db.images = require("./Image")(sequelize, Sequelize);
+
+// db.Users = require("./Users")(sequelize, Sequelize);
+// db.Users.hasOne(db.images, {
+//   foreignKey: "userId"
+// })
+// db.Interest = require("./Interest")(sequelize, Sequelize);
+// db.Objective = require("./Objective")(sequelize, Sequelize);
+
+//USERS AND INTEREST RELATIONSHIP
+// db.Users.belongsToMany(db.Interest, {
+//   through: "UserInterest",
+//   as: "Interest",
+//   foreignKey: "userId",
+// });
+// db.Interest.belongsToMany(db.Users, {
+//   through: "UserInterest",
+//   as: "Users",
+//   foreignKey: "interestId",
+// });
+
+// USERS AND OBJECTIVES RELATIONHSIP
+// db.Users.belongsToMany(db.Objective, {
+//   through: "UserObjective",
+//   as: "Objective",
+//   foreignKey: "userId",
+// });
+// db.Objective.belongsToMany(db.Users, {
+//   through: "UserObjective",
+//   as: "Users",
+//   foreignKey: "objectiveId",
+// });
 
 module.exports = db;
