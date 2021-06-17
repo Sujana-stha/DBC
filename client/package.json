@@ -1,0 +1,54 @@
+{
+  "name": "diaspora-admin",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
+    "connected-react-router": "^6.9.1",
+    "loadjs": "^4.2.0",
+    "lodash": "^4.17.21",
+    "node-sass": "^6.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-image-file": "^0.3.0",
+    "react-js-pagination": "^3.0.3",
+    "react-notify-toast": "^0.5.1",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "redux": "^4.1.0",
+    "redux-form": "^8.3.7",
+    "redux-saga": "^1.1.3",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start start-scss",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build-css": "node-sass src -o src",
+    "watch-css": "npm run build-css && node-sass src -o src --watch --recursive",
+    "start-scss": "npm-run-all -p watch-css"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
